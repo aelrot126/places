@@ -18,8 +18,9 @@
 
 <div class="row container-fluid">
   <form action="/" method="post">
-    <button class="w3-button w3-lime w3-xlarge" type="submit" formaction="/Delete">Delete All Record</button>
+    <button class="w3-button w3-lime w3-xlarge btn-danger" type="submit" formaction="/Delete">Delete All Record</button>
   </form>
+  <p></p>
   <table class="table table-striped">
     {{#list items}} <tr> <td>{{name}}</td><td>{{address}}</td><td>
         <img src={{photo}} width="200" height="200"></td> </tr> {{/list}}
