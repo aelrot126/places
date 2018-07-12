@@ -4,9 +4,9 @@ const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const server = express ();
 const path =require('path');
-const filemgr = require('./filemgr');
+//const filemgr = require('./filemgr');
 const port = process.env.PORT || 5000;
-
+const Place =require ('./Place')
 server.use(bodyParser.urlencoded({extended:true}));
 server.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials')
@@ -22,21 +22,33 @@ hbs.registerHelper('list', (items, options)=>{
   };
   return out
 });
-server.get('/historical',(req, res) =>{
-  filemgr.getAllData().then((result)=>{
-    filteredResults= result;
-    res.render('historical.hbs');
-  }).catch((errorMessage)=>{
-    console.log(errorMessage);
+server.post('/historical',(req, res) =>{
+  // filemgr.getAllData().then((result)=>{
+  //   filteredResults= result;
+  //   res.render('historical.hbs');
+  // }).catch((errorMessage)=>{
+  //   console.log(errorMessage);
+  // });
+  Place.find({})
+  .then((result)=>{
+    res.status(200).send(result);
+  }).catch((error)=>{
+       res.status(400).send(error);
   });
 
 });
 server.post('/Delete',(req, res)=>{
-    filemgr.DeleteAll().then((result)=>{
-      filteredResults = result;
-      res.render('historical.hbs');
-    }).catch((errorMessage)=>{
-      console.log(errorMessage);
+    // filemgr.DeleteAll().then((result)=>{
+    //   filteredResults = result;
+    //   res.render('historical.hbs');
+    // }).catch((errorMessage)=>{
+    //   console.log(errorMessage);
+    // });
+    Place.remove({})
+    .then((result)=>{
+res.status(200).send(result);
+    }).catch((error)=>{
+      res.status(400).send(error);
     });
 });
 server.get('/form',(req, res) =>{
@@ -63,13 +75,19 @@ const placesReq =`https://maps.googleapis.com/maps/api/place/nearbysearch/json?l
 return axios.get(placesReq);
 }).then((response)=>{
   filteredResults =extractedData(response.data.results);
-  filemgr.saveData(filteredResults).then((result)=>{
-    res.render('result.hbs');
-  }).catch((errorMessage) =>{
-    console.log(errorMessage);
-  });
-  // res.status(200).send(response.data.results);
-
+  // filemgr.saveData(filteredResults).then((result)=>{
+  //   res.render('result.hbs');
+  // }).catch((errorMessage) =>{
+  //   console.log(errorMessage);
+  // });
+  // // res.status(200).send(response.data.results);
+  Place.insertMany(filteredResults)
+  .then((result)=> {
+    res.status(200).send(result);
+  })
+.catch((error)=> {
+  res.status(400).send(error);
+});
 }).catch((error)=>{
   console.log(error);
 });
