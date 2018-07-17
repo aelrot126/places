@@ -11,6 +11,7 @@ const Result = props => {
           <tr>
             <th>Name</th>
             <th>Address</th>
+            <th>Photo</th>
           </tr>
           {props.list.map(result => {
             return (

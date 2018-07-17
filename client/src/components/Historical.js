@@ -52,9 +52,9 @@ class Historical extends Component {
           <p>Previous search results</p>
         </div>
         <div className="row container-fluid">
-          <div className="col-md-4 text-center">
+          <div className="col-md-1 text-center">
             <button
-              className="btn btn-primary btn-lg"
+              className="btn btn-danger btn-lg"
               onClick={this.handleClick}
             >
               Delete All
@@ -66,6 +66,7 @@ class Historical extends Component {
               <tr>
                 <th>Name</th>
                 <th>Address</th>
+                <th>photo</th>
               </tr>
               {this.state.result.map(result => {
                 return (

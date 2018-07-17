@@ -54,16 +54,7 @@ class Form extends Component {
       <label htmlFor="name">Enter name:</label>
       <input id="name" name="name" className="form-control" type="text" placeholder="enter name" value={this.state.name} onChange={this.onChange}/>
       <p></p>
-      <label htmlFor="places-type">Please select type of place: </label>
-      <p></p>
-                 <select name="placetype" id="places-type"  className="form-control" value={this.state.placetype} onChange={this.onChange}>
-                 <option value="food" >food</option>
-                 <option value="gym" >gym</option>
-                 <option value="shopping_mall" >shopping_mall</option>
-                 <option value="park" >park</option>
 
-      </select>
-      <p></p>
                  <input type="submit" value="Send" />
                </div>
 
