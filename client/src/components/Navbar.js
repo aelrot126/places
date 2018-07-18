@@ -8,7 +8,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-default narbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link to="/" className="navbar-brand">Marvel</Link>
+            <Link to="/" className="navbar-brand">MarvelCon</Link>
           </div>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
