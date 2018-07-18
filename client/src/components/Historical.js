@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Historical extends Component {
   constructor() {
@@ -11,9 +12,10 @@ class Historical extends Component {
       errors: {},
       result: [
         {
-          address: '',
           name: '',
-          photo_reference: ''
+          description: '',
+          photo_reference: '',
+          comiclink: '',
         }
       ]
     };
@@ -48,8 +50,8 @@ class Historical extends Component {
     return (
       <div>
         <div className="jumbotron text-center">
-          <h1>Historical Searches</h1>
-          <p>Previous search results</p>
+          <h1>Your Previous Searches MARVEL HEROES!</h1>
+
         </div>
         <div className="row container-fluid">
           <div className="col-md-1 text-center">
@@ -65,17 +67,19 @@ class Historical extends Component {
             <tbody>
               <tr>
                 <th>Name</th>
-                <th>Address</th>
+                <th>Description</th>
                 <th>photo</th>
+                <th>Comic Link</th>
               </tr>
               {this.state.result.map(result => {
                 return (
                   <tr key={result.name}>
                     <td>{result.name}</td>
-                    <td>{result.address}</td>
+                    <td>{result.description}</td>
                     <td>
                       <img src={result.photo_reference} width="100px" />
                     </td>
+                    <td><Link to={result.comiclink}>{result.comiclink}</Link></td>
                   </tr>
                 );
               })}

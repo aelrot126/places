@@ -20,9 +20,8 @@ class Form extends Component {
   onSubmit(e){
 
     const newQuery ={
-      address: this.state.addr,
       name: this.state.name,
-      placetype:this.state.placetype
+
     };
     e.preventDefault();
     axios.post('/getplaces',qs.stringify(newQuery))
@@ -37,8 +36,8 @@ class Form extends Component {
     return (
       <div>
       <div className="jumbotron text-center">
-        <h1>Search page</h1>
-        <p>for searhing places of interest</p>
+        <h1>Search Your Favourite MARVEL HEROES!</h1>
+        <p>your heroes and comics link is going to be READY from marvel official page!</p>
       </div>
 
       <div className="row container text-center">
@@ -46,14 +45,10 @@ class Form extends Component {
           <div className="col-sm-12">
              <form onSubmit={this.onSubmit}>
                <div className="form-group">
-                 <label htmlFor="addr">Enter address:</label>
-                 <input id="addr" name="addr" className="form-control" type="text" placeholder="enter address" value={this.state.addr}
+                 <label htmlFor="addr">Enter Hero Name:</label>
+                 <input id="name" name="name" className="form-control" type="text" placeholder="enter marvel hero name" value={this.state.name}
                  onChange={this.onChange}/>
                  <p></p>
-
-      <label htmlFor="name">Enter name:</label>
-      <input id="name" name="name" className="form-control" type="text" placeholder="enter name" value={this.state.name} onChange={this.onChange}/>
-      <p></p>
 
                  <input type="submit" value="Send" />
                </div>

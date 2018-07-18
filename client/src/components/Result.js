@@ -1,5 +1,5 @@
 import React from 'react';
-;
+import { Link } from 'react-router-dom';
 
 const Result = props => {
   //console.log(props.list.length);
@@ -10,17 +10,19 @@ const Result = props => {
         <tbody>
           <tr>
             <th>Name</th>
-            <th>Address</th>
+            <th>Description</th>
             <th>Photo</th>
+            <th>Comic Link</th>
           </tr>
           {props.list.map(result => {
             return (
               <tr key={result.name}>
                 <td>{result.name}</td>
-                <td>{result.address}</td>
+                <td>{result.description}</td>
                 <td>
                   <img src={result.photo_reference} width="100px" />
                 </td>
+                <td><Link to={result.comiclink}>{result.comiclink}</Link></td>
               </tr>
             );
           })}

@@ -8,11 +8,11 @@ class Navbar extends Component {
       <nav className="navbar navbar-default narbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link to="#" className="navbar-brand">Places</Link>
+            <Link to="/" className="navbar-brand">Marvel</Link>
           </div>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="form">Form</Link></li>
+            <li><Link to="form">Search</Link></li>
             <li><Link to="historical">Previous Searches</Link></li>
           </ul>
         </div>

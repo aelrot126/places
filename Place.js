@@ -17,12 +17,19 @@ const placeSchema = new mongoose.Schema({
   name: {
     type: String
   },
-  address: {
+  description: {
     type: String
   },
   photo_reference: {
     type: String
+  },
+  comiclink: {
+    type: String
+  },
+  hero: {
+    type: String
   }
+
 });
 
 // if no specify collectioname, it will create places collection
