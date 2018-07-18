@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 
 class Historical extends Component {
   constructor() {
@@ -79,7 +79,7 @@ class Historical extends Component {
                     <td>
                       <img src={result.photo_reference} width="100px" />
                     </td>
-                    <td><Link to={result.comiclink}>{result.comiclink}</Link></td>
+                    <td><a href={result.comiclink}>{result.comiclink}</a></td>
                   </tr>
                 );
               })}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Result = props => {
   //console.log(props.list.length);
@@ -22,7 +22,7 @@ const Result = props => {
                 <td>
                   <img src={result.photo_reference} width="100px" />
                 </td>
-                <td><Link to={result.comiclink}>{result.comiclink}</Link></td>
+                <td><a href={result.comiclink}>{result.comiclink}</a></td>
               </tr>
             );
           })}
